@@ -1,3 +1,4 @@
+import { Button } from "@radix-ui/themes"
 import { FilterProps, useFilterDispatch } from "./FilterContext"
 
 function randomFilterParams(): Partial<FilterProps> {
@@ -35,12 +36,12 @@ export default function AddFilter({ parentId }: { parentId: string }) {
   const dispatch = useFilterDispatch()
 
   return (
-    <button onClick={() => {
+    <Button className="cursor-pointer" variant="soft" onClick={() => {
       dispatch!({
         type: 'CREATE_FILTER',
         parentId,
         params: randomFilterParams()
       });
-    }}>Add</button>
+    }}>Add</Button>
   )
 }

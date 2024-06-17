@@ -1,3 +1,4 @@
+import { Button } from "@radix-ui/themes";
 import { useFilterDispatch } from "./FilterContext";
 
 export default function RemoveFilter({ parentId, filterId }: { parentId: string | undefined; filterId: string }) {
@@ -7,12 +8,12 @@ export default function RemoveFilter({ parentId, filterId }: { parentId: string 
   if (!parentId) return null
 
   return (
-    <button onClick={() => {
+    <Button className="cursor-pointer" variant="soft" onClick={() => {
       dispatch!({
         type: 'DELETE_FILTER',
         parentId,
         filterId,
       });
-    }}>Remove</button>
+    }}>Remove</Button>
   )
 }
